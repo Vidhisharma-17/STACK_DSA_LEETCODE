@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string result;
+
+        for(char y: s){
+            if(!result.empty() && result.back()==y){
+                result.pop_back();
+            }else{
+                result.push_back(y);
+            }
+        }
+        return result;
+    }
+};
