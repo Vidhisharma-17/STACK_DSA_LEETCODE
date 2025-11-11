@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+
+        std::vector<std::string> temp;
+
+        int j=0;
+        for(int i=1;i<=target.back();i++){
+            if( j<target.size() && i==target[j]){
+                temp.push_back("Push");
+                j++;
+            }else{
+                temp.push_back("Push");
+                temp.push_back("Pop");
+            }
+        }
+        return temp;
+    }
+};
