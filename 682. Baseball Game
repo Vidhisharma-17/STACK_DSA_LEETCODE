@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        stack<int> result;
+        for(const string& op:operations){
+            if(op=="+"){
+                int a=result.top();
+                result.pop();
+                int b=result.top();
+                result.push(a);
+                result.push(a+b);
+            }else if(op=="D"){
+                int doubled=result.top()*2;
+                result.push(doubled);
+
+            }else if(op=="C"){
+                if(!result.empty()){
+                    result.pop();
+                }
+            }else{
+                result.push(stoi(op));
+            }
+        }
+        int total=0;
+        while(!result.empty()){
+            total+=result.top();
+            result.pop();
+        }
+        return total;
+    }
+};
